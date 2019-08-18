@@ -15,7 +15,15 @@ func TestBlink(t *testing.T) {
 
 	work := func() {
 		gobot.Every(1*time.Second, func() {
-			led.Toggle()
+			if err := led.Toggle(); err != nil {
+				t.FailNow()
+			}
+			if led.State() {
+				t.Log("led is on")
+			} else {
+				t.Log("led is off")
+			}
+
 		})
 	}
 
