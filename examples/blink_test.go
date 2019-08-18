@@ -1,6 +1,7 @@
 package examples
 
 import (
+	"fmt"
 	"gobot.io/x/gobot"
 	"gobot.io/x/gobot/drivers/gpio"
 	"gobot.io/x/gobot/platforms/raspi"
@@ -19,9 +20,9 @@ func TestBlink(t *testing.T) {
 				t.FailNow()
 			}
 			if led.State() {
-				t.Log("led is on")
+				fmt.Println("led is on")
 			} else {
-				t.Log("led is off")
+				fmt.Println("led is off")
 			}
 
 		})
